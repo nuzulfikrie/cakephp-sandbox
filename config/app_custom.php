@@ -30,11 +30,12 @@ return [
 
 	'Datasources' => [
 		'default' => [
-			'host' => 'localhost',
-			'username' => 'root',
-			'password' => '',
-			'database' => '', // Set in your app_local.php
+			'host' => env('MYSQL_HOST', 'localhost'),
+			'username' => env('MYSQL_USERNAME', 'root'),
+			'database' => env('MYSQL_DB', ''), // Set in your app_local.php
+			'password' => '', // Set in your app_local.php
 			'quoteIdentifiers' => true,
+			'url' => getenv('DB_DSN') ?: null,
 		],
 
 		/**

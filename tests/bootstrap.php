@@ -31,8 +31,8 @@ $Tmp->create(LOGS, 0770);
 
 // Ensure default test connection is defined
 if (!getenv('db_class')) {
-	putenv('db_class=Cake\Database\Driver\Sqlite');
-	putenv('db_dsn=sqlite::memory:');
+	putenv('DB_CLASS=Cake\Database\Driver\Sqlite');
+	putenv('DB_DSN=sqlite::memory:');
 }
 
 Router::defaultRouteClass(DashedRoute::class);
@@ -44,11 +44,8 @@ require ROOT . '/vendor/dereuromark/cakephp-tools/config/bootstrap.php';
 Cake\Datasource\ConnectionManager::drop('test');
 Cake\Datasource\ConnectionManager::setConfig('test', [
 	'className' => 'Cake\Database\Connection',
-	'driver' => getenv('db_class') ?: null,
-	'dsn' => getenv('db_dsn') ?: null,
-	//'database' => getenv('db_database'),
-	//'username' => getenv('db_username'),
-	//'password' => getenv('db_password'),
+	'driver' => getenv('DB_CLASS') ?: null,
+	'dsn' => getenv('DB_DSN') ?: null,
 	'timezone' => 'UTC',
 	'quoteIdentifiers' => true,
 	'cacheMetadata' => true,

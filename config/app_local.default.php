@@ -9,10 +9,11 @@ return [
 
 	'Datasources' => [
 		'default' => [
-			'host' => 'localhost',
-			'username' => 'root',
-			'password' => '',
-			'database' => 'cake_sandbox',
+			'host' => env('DB_HOST', 'localhost'),
+			'username' => env('DB_USERNAME', 'root'),
+			'database' => env('DB_DATABASE', 'cake_sandbox'),
+			'password' => env('DB_PASSWORD', ''),
+			'url' => getenv('DB_DSN') ?: null,
 		],
 
 		/**
